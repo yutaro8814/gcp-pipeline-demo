@@ -1,0 +1,18 @@
+steps:
+  # 1. Dockerイメージをビルド
+  - name: 'gcr.io/cloud-builders/docker'
+    args: [
+      'build', 
+      '-t', 'asia-northeast1-docker.pkg.dev/$PROJECT_ID/my-traning-artifact/hello-world:latest', 
+      '.'
+    ]
+
+  # 2. Artifact Registryへプッシュ
+  - name: 'gcr.io/cloud-builders/docker'
+    args: [
+      'push', 
+      'asia-northeast1-docker.pkg.dev/$PROJECT_ID/my-traning-artifact/hello-world:latest'
+    ]
+
+images:
+  - 'asia-northeast1-docker.pkg.dev/$PROJECT_ID/my-traning-artifact/hello-world:latest'
