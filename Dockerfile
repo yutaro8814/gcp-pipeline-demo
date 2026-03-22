@@ -1,3 +1,3 @@
 FROM python:3.12-slim
-COPY main.py .
-CMD ["python", "main.py"]
+COPY hello.py .
+CMD ["python", "hello.py"]
